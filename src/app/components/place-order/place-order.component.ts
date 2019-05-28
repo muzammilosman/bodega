@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
+
 
 @Component({
   selector: 'app-place-order',
@@ -7,9 +9,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlaceOrderComponent implements OnInit {
 
-  constructor() { }
+  orderForm: FormGroup;
+  items: FormArray;
+
+  constructor(public fb: FormBuilder) { }
 
   ngOnInit() {
+    this.orderForm = this.fb.group({
+      customerName: '',
+      items: this.fb.array([this.createItem()])
+    });
+  }
+
+  addItem(): void {
+    this.items = this.orderForm.get('items') as FormArray;
+    console.log(this.items.value);
+    this.items.push(this.createItem());
+    console.log('Items after push' + this.items);
+  }
+
+  createItem(): FormGroup {
+    return this.fb.group({
+      productName: '',
+      brand: '',
+      quantity: ''
+    });
   }
 
 }

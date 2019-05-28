@@ -1,11 +1,25 @@
 <div class="component-header">
     <h2>Enter User Details</h2>
   </div>
+
+  
   
   <div class="userdetail">
-    <form>
+    <form class="customform">
       <label for="phone">Enter User Phone Number: </label>
-      <input type="text"  name="phone" #phone>
-      <button class="btn btn-light">Check</button>
+      <input type="text" [(ngModel)]="phone"  name="phone" #customerphone>
+      <button class="btn btn-primary" (click)="checkuser()">Check</button>
+      <p *ngIf="userFound">Username found: {{userDetail.user.username}}</p>
+      <div *ngIf="!userFound">    
+          <label for="name">Enter Customer Name</label>
+          <input type="text" name="name" [(ngModel)]="name" #customername><br>
+          <label for="email">Enter Customer Email</label>
+          <input type="text" name="email" [(ngModel)]="email" #customeremail><br>
+          <label for="longitude">Location Longitude</label>
+          <input type="text" name="longitude" [(ngModel)]="longitude" #customerlongitude><br>
+          <label for="latitude">Location Latitude</label>
+          <input type="text" name="latitude" [(ngModel)]="latitude" #customerlatitude><br>
+          <button (click)="addNewUser()" >SUBMIT</button>
+      </div>
     </form>
   </div>

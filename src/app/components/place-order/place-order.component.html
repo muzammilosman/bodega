@@ -1,7 +1,14 @@
-<div class="component-header">
-    <h2>Enter Your Items</h2>
+<div class="col-md-12">
+    <button (click)="addItem()" type="button" class="btn btn-primary">ADD ITEM</button>
+</div>
+
+<div formArrayName="items"
+  *ngFor="let item of orderForm.get('items').controls; let i = index;">
+  <div [formGroupName]="i">
+    <input formControlName="productName" placeholder="Item name">
+    <input formControlName="brand" placeholder="Item brand">
+    <input formControlName="quantity" placeholder="Quantity">
   </div>
-  
-  <div class="userdetail">
-    <p>Building</p>
-  </div>
+
+  Chosen name: {{ orderForm.controls.items.controls[i].controls.name.value }}
+</div>
