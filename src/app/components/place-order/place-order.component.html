@@ -1,14 +1,17 @@
 <div class="col-md-12">
     <button (click)="addItem()" type="button" class="btn btn-primary">ADD ITEM</button>
 </div>
-
-<div formArrayName="items"
-  *ngFor="let item of orderForm.get('items').controls; let i = index;">
-  <div [formGroupName]="i">
-    <input formControlName="productName" placeholder="Item name">
-    <input formControlName="brand" placeholder="Item brand">
-    <input formControlName="quantity" placeholder="Quantity">
-  </div>
-
-  Chosen name: {{ orderForm.controls.items.controls[i].controls.name.value }}
+<div [formGroup]="orderForm">
+  <div formArrayName="items">
+    <div *ngFor="let item of orderForm.get('items').controls; let i = index;" [formGroupName]="i">
+    
+      <input formControlName="productName" placeholder="Item name">
+      <input formControlName="brand" placeholder="Item brand">
+      <input formControlName="quantity" placeholder="Quantity" >
+    
+    </div>
+  </div> 
+  
 </div>
+
+<button class="btn btn-success" (click)="submitOrder()">SUBMIT ORDER</button>

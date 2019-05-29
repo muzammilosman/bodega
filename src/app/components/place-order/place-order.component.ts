@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
+import { FormBuilder, FormGroup, FormArray, FormControl } from '@angular/forms';
 
 
 @Component({
@@ -25,7 +25,6 @@ export class PlaceOrderComponent implements OnInit {
     this.items = this.orderForm.get('items') as FormArray;
     console.log(this.items.value);
     this.items.push(this.createItem());
-    console.log('Items after push' + this.items);
   }
 
   createItem(): FormGroup {
@@ -34,6 +33,11 @@ export class PlaceOrderComponent implements OnInit {
       brand: '',
       quantity: ''
     });
+  }
+
+  submitOrder() {
+    console.log(this.orderForm.value);
+    alert('Order Created');
   }
 
 }
