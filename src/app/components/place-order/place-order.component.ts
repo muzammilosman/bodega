@@ -23,7 +23,6 @@ export class PlaceOrderComponent implements OnInit {
 
   addItem(): void {
     this.items = this.orderForm.get('items') as FormArray;
-    console.log(this.items.value);
     this.items.push(this.createItem());
   }
 
@@ -36,7 +35,7 @@ export class PlaceOrderComponent implements OnInit {
   }
 
   submitOrder() {
-    console.log(this.orderForm.value);
+    console.log(JSON.stringify(this.orderForm.value.items));
     alert('Order Created');
   }
 
