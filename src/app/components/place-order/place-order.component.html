@@ -1,17 +1,23 @@
-<div class="col-md-12">
-    <button (click)="addItem()" type="button" class="btn btn-primary">ADD ITEM</button>
-</div>
-<div [formGroup]="orderForm">
-  <div formArrayName="items">
-    <div *ngFor="let item of orderForm.get('items').controls; let i = index;" [formGroupName]="i">
-    
-      <input formControlName="productName" placeholder="Item name">
-      <input formControlName="brand" placeholder="Item brand">
-      <input formControlName="quantity" placeholder="Quantity" >
-    
+<div>
+  <div class="row menu-header">
+    <div class="col-md-6 title">
+      Menu
     </div>
-  </div> 
+    <div class="col-md-6 community-score">
+      <div class="row">
+        <div class="heart"><i class="fa fa-pen"></i></div>
+        <div>
+            <div class="score-detail">1000</div>
+            <div class="score-desc">Community Score</div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <div class="row product-catalogue">
+    <div class="col-md-4 item-card" *ngFor="let item of [0,1,2,3,4,5]">
+      <app-product-catalogue></app-product-catalogue>
+    </div>
+  </div>
   
 </div>
-
-<button class="btn btn-success" (click)="submitOrder()">SUBMIT ORDER</button>

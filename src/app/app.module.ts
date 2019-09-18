@@ -8,10 +8,11 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { UserCheckComponent } from './components/user-check/user-check.component';
 import { PlaceOrderComponent } from './components/place-order/place-order.component';
+import { ProductCatalogueComponent } from './components/product-catalogue/product-catalogue.component';
 
 const appRoutes: Routes = [
-  {path: '', component: UserCheckComponent},
-  {path: 'place-order', component: PlaceOrderComponent}
+  {path: '/', component: PlaceOrderComponent},
+  {path: '/place-order', component: PlaceOrderComponent}
 ];
 
 @NgModule({
@@ -19,7 +20,8 @@ const appRoutes: Routes = [
     AppComponent,
     NavbarComponent,
     UserCheckComponent,
-    PlaceOrderComponent
+    PlaceOrderComponent,
+    ProductCatalogueComponent
   ],
   imports: [
     BrowserModule,

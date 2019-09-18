@@ -8,35 +8,11 @@ import { FormBuilder, FormGroup, FormArray, FormControl } from '@angular/forms';
   styleUrls: ['./place-order.component.css']
 })
 export class PlaceOrderComponent implements OnInit {
+  list:any 
+  constructor() { }
 
-  orderForm: FormGroup;
-  items: FormArray;
+  ngOnInit() { }
 
-  constructor(public fb: FormBuilder) { }
-
-  ngOnInit() {
-    this.orderForm = this.fb.group({
-      customerName: '',
-      items: this.fb.array([this.createItem()])
-    });
-  }
-
-  addItem(): void {
-    this.items = this.orderForm.get('items') as FormArray;
-    this.items.push(this.createItem());
-  }
-
-  createItem(): FormGroup {
-    return this.fb.group({
-      productName: '',
-      brand: '',
-      quantity: ''
-    });
-  }
-
-  submitOrder() {
-    console.log(JSON.stringify(this.orderForm.value.items));
-    alert('Order Created');
-  }
+  
 
 }
