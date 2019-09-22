@@ -11,8 +11,8 @@ import { PlaceOrderComponent } from './components/place-order/place-order.compon
 import { ProductCatalogueComponent } from './components/product-catalogue/product-catalogue.component';
 
 const appRoutes: Routes = [
-  {path: '/', component: PlaceOrderComponent},
-  {path: '/place-order', component: PlaceOrderComponent}
+  {path: '', component: PlaceOrderComponent},
+  {path: 'place-order', component: PlaceOrderComponent}
 ];
 
 @NgModule({
